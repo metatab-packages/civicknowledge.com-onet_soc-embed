@@ -1,6 +1,6 @@
 Declare,metatab-latest
-Title,
-Description,
+Title,O*Net Occupation Embeddings
+Description,Text for O*Net occupations and pre-computed embeddings.
 Identifier,c57f86e5-b05c-4e32-b17f-d18803959fc7
 Name,civicknowledge.com-onet_soc-embed-1.1.1
 Dataset,onet_soc
@@ -14,17 +14,34 @@ Version.Major,1
 Version.Minor,1
 Version.Patch,1
 Created,2023-09-15T00:06:00
-Modified,2023-09-15T00:06:00
+Modified,2023-09-16T04:54:45
 Giturl,https://github.com/CivicKnowledge/cmech_data.git
-""
+
 Section,Contacts,Email,Organization,Url
 Wrangler,Eric Busboom,eric@civicknowledge.com,Civic Knowledge,http://civicknowledge.com
-""
+
 Section,Documentation,Title,Description,
 Documentation,file:README.md,README,,
-""
+
 Section,References,Name,Description,
-""
+Reference,https://www.onetcenter.org/dl_files/database/db_27_3_excel/Occupation%20Data.xlsx,onet_occupations_source,Descriptions of O*Net Occupations,
+Reference,https://www.onetcenter.org/dl_files/database/db_27_3_excel/Task%20Statements.xlsx,onet_tasks_source,Descriptions of tasks for O*Net occupations,
+
 Section,Resources,Name,Description,
-""
-Section,Schema,DataType,AltName,Description
+Datafile,notebooks/build_onet_embed.ipynb#ot_df,onet_occupations,"O*Net SOC, occupation descriptions and embeddings.",
+Datafile,notebooks/build_onet_embed.ipynb#rewrites,onet_rewrites,"ONet Occuption descriptions, rewritten",
+
+Section,Schema,DataType,AltName,Description,Has_Codes
+Table,onet_occupations,,,,
+Table.Column,soc,text,,,
+Table.Column,title,text,,,
+Table.Column,desc,text,,,
+Table.Column,tasks,text,,,
+Table.Column,text,text,,,
+Table,onet_rewrites,,,,
+Table.Column,soc,text,,,
+Table.Column,title,text,,,
+Table.Column,summary,text,,,
+Table.Column,rewrite,text,,,
+Table.Column,mismatch,text,,,
+Table.Column,cache_path,text,,,
